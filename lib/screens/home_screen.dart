@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_nav_bar.dart';
 import '../widgets/chart_card.dart';
+import '../widgets/info_card.dart';
 import '../widgets/custom_drawer.dart';
 import '../utils/chart_builders.dart';
 import 'information_screen.dart';
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const FaIcon(FontAwesomeIcons.bell),
             color: Colors.black,
-            iconSize: 25,
+            iconSize: 22,
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Notificaciones')),
@@ -88,6 +89,18 @@ class HomeDashboard extends StatelessWidget {
         'subtitle1': 'Tiempo restante',
         'subtitle2': '100% en 25min..',
       },
+      {
+        'icon': Icons.alarm_rounded,
+        'title': 'Descanso',
+        'subtitle1': 'Temporizador',
+        'subtitle2': '01 hora/s 45 min...',
+      },
+      {
+        'icon': Icons.monitor_heart_rounded,
+        'title': 'Calorias',
+        'subtitle1': 'Kcal segun distancia recorrida',
+        'subtitle2': '1293 Kcal',
+      },
     ];
 
     return SingleChildScrollView(
@@ -106,35 +119,95 @@ class HomeDashboard extends StatelessWidget {
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
             const SizedBox(height: 16),
-            GridView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                childAspectRatio: 3 / 4,
-              ),
-              itemCount: chartData.length,
-              itemBuilder: (context, index) {
-                final data = chartData[index];
-                return ChartCard(
-                  icon: data['icon'],
-                  title: data['title'],
-                  chart: data['chart'],
-                  subtitle1: data['subtitle1'],
-                  subtitle2: data['subtitle2'],
-                );
-              },
+            // Fila 1 con dos columnas
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Columna 1: Gráfico de pie
+                Expanded(
+                  child: Container(
+                    height: 250, // Ajusta la altura según sea necesario
+                    margin: const EdgeInsets.only(right: 16),
+                    child: ChartCard(
+                      icon: chartData[0]['icon'],
+                      title: chartData[0]['title'],
+                      chart: chartData[0]['chart'],
+                      subtitle1: chartData[0]['subtitle1'],
+                      subtitle2: chartData[0]['subtitle2'],
+                    ),
+                  ),
+                ),
+                // Columna 2: Gráfico de línea
+                Expanded(
+                  child: Container(
+                    height: 250, // Ajusta la altura según sea necesario
+                    child: ChartCard(
+                      icon: chartData[1]['icon'],
+                      title: chartData[1]['title'],
+                      chart: chartData[1]['chart'],
+                      subtitle1: chartData[1]['subtitle1'],
+                      subtitle2: chartData[1]['subtitle2'],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            // Fila 2 con dos columnas
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // Columna 1: Gráfico de barras
+                Expanded(
+                  child: Container(
+                    height: 300, // Ajusta la altura según sea necesario
+                    margin: const EdgeInsets.only(
+                        right: 16), // Espacio entre columnas
+                    child: ChartCard(
+                      icon: chartData[2]['icon'],
+                      title: chartData[2]['title'],
+                      chart: chartData[2]['chart'],
+                      subtitle1: chartData[2]['subtitle1'],
+                      subtitle2: chartData[2]['subtitle2'],
+                    ),
+                  ),
+                ),
+                // Columna 2: Titulo 1 y Titulo 2
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 140,
+                        margin: const EdgeInsets.only(bottom: 16),
+                        child: InfoCard(
+                          icon1: chartData[3]['icon'],
+                          title1: chartData[3]['title'],
+                          subtitle11: chartData[3]['subtitle1'],
+                          subtitle21: chartData[3]['subtitle2'],
+                        ),
+                      ),
+                      Container(
+                        height: 140,
+                        child: InfoCard(
+                          icon1: chartData[4]['icon'],
+                          title1: chartData[4]['title'],
+                          subtitle11: chartData[4]['subtitle1'],
+                          subtitle21: chartData[4]['subtitle2'],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 8),
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
                 onPressed: () {
-                  // Acción al presionar "Ver más..."
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Ver más')),
+                    const SnackBar(content: Text('Ver más')),
                   );
                 },
                 child: const Text(

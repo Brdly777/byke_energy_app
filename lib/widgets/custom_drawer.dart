@@ -9,13 +9,25 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
-            decoration: BoxDecoration(color: Colors.blue),
-            child: Text(
-              'Menú',
-              style: TextStyle(color: Colors.white, fontSize: 20),
+          // Encabezado con el botón X
+          DrawerHeader(
+            decoration: const BoxDecoration(
+              color: Colors.white, // Fondo blanco
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SizedBox(), // Para no agregar texto en el encabezado
+                IconButton(
+                  icon: const Icon(Icons.close, color: Colors.black),
+                  onPressed: () {
+                    Navigator.pop(context); // Cierra el Drawer
+                  },
+                ),
+              ],
             ),
           ),
+          // Elementos del menú
           ListTile(
             leading: const Icon(Icons.home),
             title: const Text('Inicio'),

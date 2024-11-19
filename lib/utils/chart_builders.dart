@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import '../widgets/info_card.dart';
 
 class ChartBuilders {
+  // Para los gráficos
   static Widget buildPieChart() {
     return PieChart(
       PieChartData(
@@ -39,6 +41,21 @@ class ChartBuilders {
           BarChartGroupData(x: 1, barRods: [BarChartRodData(toY: 10)]),
         ],
       ),
+    );
+  }
+
+  // Para los cards sin gráficos, podemos hacer algo similar:
+  static Widget buildInfoCard({
+    required IconData icon,
+    required String title,
+    required String subtitle1,
+    required String subtitle2,
+  }) {
+    return InfoCard(
+      icon1: icon,
+      title1: title,
+      subtitle11: subtitle1,
+      subtitle21: subtitle2,
     );
   }
 }
