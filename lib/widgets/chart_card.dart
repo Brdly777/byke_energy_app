@@ -50,7 +50,7 @@ class ChartCard extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         fontWeight: FontWeight.normal,
-                        fontSize: 17,
+                        fontSize: 16,
                       ),
                     ),
                   ),
@@ -66,7 +66,7 @@ class ChartCard extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 subtitle2,
-                style: const TextStyle(fontSize: 14, color: Colors.grey),
+                style: const TextStyle(fontSize: 18, color: Colors.black),
               ),
             ],
           ),

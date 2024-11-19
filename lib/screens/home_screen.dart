@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const FaIcon(FontAwesomeIcons.bell),
             color: Colors.black,
-            iconSize: 27,
+            iconSize: 25,
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Notificaciones')),
