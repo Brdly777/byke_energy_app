@@ -84,7 +84,7 @@ class HomeDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> chartData = [
       {
-        'icon': Icons.electric_bike,
+        'icon': Icons.electric_bike_rounded,
         'title': 'Km',
         'chart': ChartBuilders.buildPieChart(),
         'subtitle1': 'Kilometros del dia',
@@ -111,7 +111,7 @@ class HomeDashboard extends StatelessWidget {
         'subtitle2': '01 hora/s 45 min...',
       },
       {
-        'icon': Icons.monitor_heart_rounded,
+        'icon': Icons.local_fire_department_rounded,
         'title': 'Calorias',
         'subtitle1': 'Kcal segun distancia recorrida',
         'subtitle2': '1293 Kcal',

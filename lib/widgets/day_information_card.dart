@@ -11,9 +11,9 @@ class DayInformationCard extends StatelessWidget {
   });
 
   // Definimos los colores actualizados para las métricas
-  final Color distanceColor = Color(0xFF3F51B5); // Color índigo para distancia
-  final Color energyColor = Color(0xFF4CAF50); // Color verde para energía
-  final Color caloriesColor = Color(0xFFFF5252); // Color rojo para calorías
+  final Color distanceColor = Colors.indigo; // Color índigo para distancia
+  final Color energyColor = Colors.green; // Color verde para energía
+  final Color caloriesColor = Colors.red; // Color rojo para calorías
   final double betweenSpace = 0.2;
 
   // Método para generar datos para las barras del gráfico
@@ -158,12 +158,12 @@ class DayInformationCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
-                                Icons.directions_walk,
+                                Icons.electric_bike_rounded,
                                 color: distanceColor,
                                 size: 24.0,
                               ),
                               const SizedBox(height: 8),
-                              Text(
+                              const Text(
                                 'Distancia',
                                 style: TextStyle(
                                   fontSize: 16,
@@ -171,7 +171,7 @@ class DayInformationCard extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 8),
-                              Text(
+                              const Text(
                                 '2.1 Km',
                                 style: TextStyle(fontSize: 14),
                               ),
@@ -196,12 +196,12 @@ class DayInformationCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
-                                Icons.local_fire_department,
+                                Icons.local_fire_department_rounded,
                                 color: caloriesColor,
                                 size: 24.0,
                               ),
                               const SizedBox(height: 8),
-                              Text(
+                              const Text(
                                 'Calorías',
                                 style: TextStyle(
                                   fontSize: 16,
@@ -209,7 +209,7 @@ class DayInformationCard extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 8),
-                              Text(
+                              const Text(
                                 '1,293',
                                 style: TextStyle(fontSize: 14),
                               ),
@@ -234,12 +234,12 @@ class DayInformationCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
-                                Icons.bolt,
+                                Icons.battery_charging_full_rounded,
                                 color: energyColor,
                                 size: 24.0,
                               ),
                               const SizedBox(height: 8),
-                              Text(
+                              const Text(
                                 'Energía',
                                 style: TextStyle(
                                   fontSize: 16,
@@ -247,7 +247,7 @@ class DayInformationCard extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(height: 8),
-                              Text(
+                              const Text(
                                 '70%',
                                 style: TextStyle(fontSize: 14),
                               ),
