@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import '../screens/home_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -12,31 +14,88 @@ class CustomDrawer extends StatelessWidget {
           // Encabezado con el botón X
           DrawerHeader(
             decoration: const BoxDecoration(
-              color: Colors.white, // Fondo blanco
+              color: Colors.indigo,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            child: Stack(
               children: [
-                const SizedBox(), // Para no agregar texto en el encabezado
-                IconButton(
-                  icon: const Icon(Icons.close, color: Colors.black),
-                  onPressed: () {
-                    Navigator.pop(context); // Cierra el Drawer
-                  },
+                const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Byke Energy',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 27,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.close,
+                      color: Colors.white,
+                      size: 37,
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context); // Cierra el Drawer
+                    },
+                  ),
                 ),
               ],
             ),
           ),
+
           // Elementos del menú
           ListTile(
-            leading: const Icon(Icons.home),
+            leading: const Icon(
+              Icons.widgets_rounded,
+              color: Colors.black,
+              size: 32,
+            ),
             title: const Text('Inicio'),
-            onTap: () {},
+            onTap: () {
+              // Redirige a la pantalla inicial
+              Navigator.pop(context); // Cierra el Drawer
+              Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+                (route) => false, // Elimina todas las rutas anteriores
+              );
+            },
           ),
           ListTile(
-            leading: const Icon(Icons.settings),
+            leading: const Icon(
+              Icons.supervised_user_circle_rounded,
+              color: Colors.black,
+              size: 32,
+            ),
+            title: const Text('Tu información'),
+            onTap: () {
+              // Lógica personalizada aquí
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.settings,
+              color: Colors.black,
+              size: 32,
+            ),
             title: const Text('Configuración'),
-            onTap: () {},
+            onTap: () {
+              // Lógica personalizada aquí
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.exit_to_app_rounded,
+              color: Colors.black,
+              size: 32,
+            ),
+            title: const Text('Salir de la aplicación'),
+            onTap: () {
+              // Cierra la aplicación
+              SystemNavigator.pop(); // Sale completamente de la app
+            },
           ),
         ],
       ),

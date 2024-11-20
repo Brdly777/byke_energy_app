@@ -23,10 +23,14 @@ class ChartBuilders {
   static Widget buildLineChart() {
     return LineChart(
       LineChartData(
-        gridData: FlGridData(show: true),
+        gridData: const FlGridData(show: true),
         lineBarsData: [
           LineChartBarData(
-            spots: [FlSpot(0, 1), FlSpot(1, 1.5), FlSpot(2, 1.4)],
+            spots: [
+              const FlSpot(0, 1),
+              const FlSpot(1, 1.5),
+              const FlSpot(2, 1.4)
+            ],
           ),
         ],
       ),

@@ -18,7 +18,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0; // Controla la pantalla actual
   final List<Widget> _pages = [
-    // Lista de pantallas
     const HomeDashboard(),
     const InformationScreen(),
     const StatisticsScreen(),
@@ -28,6 +27,20 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(
+                Icons.menu_rounded,
+                size: 32,
+              ),
+              color: Colors.black,
+              onPressed: () {
+                Scaffold.of(context).openDrawer(); // Abre el Drawer
+              },
+            );
+          },
+        ),
         title: const Text(
           'Byke Energy',
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -35,9 +48,11 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const FaIcon(FontAwesomeIcons.bell),
+            icon: const FaIcon(
+              FontAwesomeIcons.bell,
+              size: 28,
+            ),
             color: Colors.black,
-            iconSize: 22,
             onPressed: () {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Notificaciones')),
@@ -139,7 +154,7 @@ class HomeDashboard extends StatelessWidget {
                 ),
                 // Columna 2: Gráfico de línea
                 Expanded(
-                  child: Container(
+                  child: SizedBox(
                     height: 250, // Ajusta la altura según sea necesario
                     child: ChartCard(
                       icon: chartData[1]['icon'],
@@ -187,7 +202,7 @@ class HomeDashboard extends StatelessWidget {
                           subtitle21: chartData[3]['subtitle2'],
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: 140,
                         child: InfoCard(
                           icon1: chartData[4]['icon'],
