@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/week_day_selector.dart';
-import '../widgets/day_information_card.dart';
+import '../widgets/day_info_card.dart';
 
 class InformationScreen extends StatefulWidget {
   const InformationScreen({Key? key}) : super(key: key);

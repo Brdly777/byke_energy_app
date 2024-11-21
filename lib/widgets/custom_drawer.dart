@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../screens/home_screen.dart';
+import '../screens/user_info_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -71,7 +72,12 @@ class CustomDrawer extends StatelessWidget {
             ),
             title: const Text('Tu información'),
             onTap: () {
-              // Lógica personalizada aquí
+              Navigator.pop(context); // Cierra el Drawer
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const InformationDetailScreen(),
+                ),
+              );
             },
           ),
           ListTile(

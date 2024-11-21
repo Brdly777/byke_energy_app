@@ -4,7 +4,7 @@ import '../widgets/chart_card.dart';
 import '../widgets/info_card.dart';
 import '../widgets/custom_drawer.dart';
 import '../utils/chart_builders.dart';
-import 'information_screen.dart';
+import 'info_screen.dart';
 import 'statistics_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
