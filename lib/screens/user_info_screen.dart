@@ -28,7 +28,7 @@ class _InformationDetailScreenState extends State<InformationDetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Fila para género dentro de una Card (sin título)
+            // Fila para género dentro de una Card
             Card(
               color: Colors.white,
               shape: RoundedRectangleBorder(
