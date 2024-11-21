@@ -3,7 +3,7 @@ import 'package:fl_chart/fl_chart.dart';
 import '../widgets/info_card.dart';
 
 class ChartBuilders {
-  // Para los gráficos
+  // Para los graficos
   static Widget buildPieChart() {
     return PieChart(
       PieChartData(
@@ -48,7 +48,6 @@ class ChartBuilders {
     );
   }
 
-  // Para los cards sin gráficos, podemos hacer algo similar:
   static Widget buildInfoCard({
     required IconData icon,
     required String title,

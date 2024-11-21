@@ -28,7 +28,7 @@ class _InformationDetailScreenState extends State<InformationDetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Fila para género dentro de una Card
+            // Seleccion de genero
             Card(
               color: Colors.white,
               shape: RoundedRectangleBorder(
@@ -133,7 +133,7 @@ class _InformationDetailScreenState extends State<InformationDetailScreen> {
                     const Text('Metros'),
                     Switch(
                       value: _isHeightInMeters,
-                      activeColor: Colors.green, // Cambiado a verde
+                      activeColor: Colors.green,
                       onChanged: (value) {
                         setState(() {
                           _isHeightInMeters = value;
@@ -194,7 +194,7 @@ class _InformationDetailScreenState extends State<InformationDetailScreen> {
                     const Text('Kg'),
                     Switch(
                       value: _isWeightInKilos,
-                      activeColor: Colors.green, // Cambiado a verde
+                      activeColor: Colors.green,
                       onChanged: (value) {
                         setState(() {
                           _isWeightInKilos = value;

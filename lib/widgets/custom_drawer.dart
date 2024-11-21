@@ -88,7 +88,7 @@ class CustomDrawer extends StatelessWidget {
             ),
             title: const Text('Configuración'),
             onTap: () {
-              // Lógica personalizada aquí
+              // TODO: Accion de boton
             },
           ),
           ListTile(
@@ -99,7 +99,6 @@ class CustomDrawer extends StatelessWidget {
             ),
             title: const Text('Salir de la aplicación'),
             onTap: () {
-              // Cierra la aplicación
               SystemNavigator.pop(); // Sale completamente de la app
             },
           ),

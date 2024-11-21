@@ -7,6 +7,7 @@ import '../utils/chart_builders.dart';
 import 'info_screen.dart';
 import 'statistics_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'notifications_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,7 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0; // Controla la pantalla actual
+  int _selectedIndex = 0;
   final List<Widget> _pages = [
     const HomeDashboard(),
     const InformationScreen(),
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               color: Colors.black,
               onPressed: () {
-                Scaffold.of(context).openDrawer(); // Abre el Drawer
+                Scaffold.of(context).openDrawer();
               },
             );
           },
@@ -54,8 +55,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             color: Colors.black,
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Notificaciones')),
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const NotificationsScreen(),
+                ),
               );
             },
           ),
@@ -63,13 +66,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: const CustomDrawer(),
       body: IndexedStack(
-        index: _selectedIndex, // Muestra la página según el índice
-        children: _pages, // Las pantallas
+        index: _selectedIndex,
+        children: _pages,
       ),
       bottomNavigationBar: CustomNavBar(
         onTabSelected: (index) {
           setState(() {
-            _selectedIndex = index; // Cambia la pantalla actual
+            _selectedIndex = index;
           });
         },
       ),
@@ -108,7 +111,7 @@ class HomeDashboard extends StatelessWidget {
         'icon': Icons.alarm_rounded,
         'title': 'Descanso',
         'subtitle1': 'Temporizador',
-        'subtitle2': '01 hora/s 45 min...',
+        'subtitle2': '01:45',
       },
       {
         'icon': Icons.local_fire_department_rounded,
@@ -141,7 +144,7 @@ class HomeDashboard extends StatelessWidget {
                 // Columna 1: Gráfico de pie
                 Expanded(
                   child: Container(
-                    height: 250, // Ajusta la altura según sea necesario
+                    height: 250,
                     margin: const EdgeInsets.only(right: 16),
                     child: ChartCard(
                       icon: chartData[0]['icon'],
@@ -155,7 +158,7 @@ class HomeDashboard extends StatelessWidget {
                 // Columna 2: Gráfico de línea
                 Expanded(
                   child: SizedBox(
-                    height: 250, // Ajusta la altura según sea necesario
+                    height: 250,
                     child: ChartCard(
                       icon: chartData[1]['icon'],
                       title: chartData[1]['title'],
@@ -168,7 +171,7 @@ class HomeDashboard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            // Fila 2 con dos columnas
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

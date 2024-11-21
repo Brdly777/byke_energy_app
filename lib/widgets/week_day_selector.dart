@@ -23,7 +23,7 @@ class WeekDaySelector extends StatelessWidget {
       'Domingo',
     ];
 
-    final int currentDayIndex = today.weekday - 1; // Lunes es 0, Domingo es 6
+    final int currentDayIndex = today.weekday - 1;
     final List<String> orderedWeekDays = [
       ...weekDays.sublist(currentDayIndex),
       ...weekDays.sublist(0, currentDayIndex),
@@ -49,7 +49,7 @@ class WeekDaySelector extends StatelessWidget {
       child: Row(
         children: List.generate(7, (index) {
           final DateTime date = weekDates[index];
-          final bool isToday = index == 3; // Día actual al centro
+          final bool isToday = index == 3;
           final bool isFuture = date.isAfter(today);
 
           String formattedDate = DateFormat('d').format(date);
@@ -73,12 +73,8 @@ class WeekDaySelector extends StatelessWidget {
                   formattedDate,
                   style: TextStyle(
                     fontSize: 14,
-                    color: isFuture
-                        ? Colors.grey
-                        : Colors.black, // Días futuros en gris
-                    fontWeight: isToday
-                        ? FontWeight.bold
-                        : FontWeight.normal, // Destacar el día actual
+                    color: isFuture ? Colors.grey : Colors.black,
+                    fontWeight: isToday ? FontWeight.bold : FontWeight.normal,
                   ),
                   textAlign: TextAlign.center,
                 ),

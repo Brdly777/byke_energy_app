@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
       title: 'Byke Energy',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'Poppins', // Define la fuente globalmente
+        fontFamily: 'Poppins',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const HomeScreen(), // Ruta inicial
+      home: const HomeScreen(),
     );
   }
 }

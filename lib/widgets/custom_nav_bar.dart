@@ -8,7 +8,7 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80, // Altura ajustada
+      height: 80,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.vertical(
@@ -26,29 +26,27 @@ class CustomNavBar extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center, // Centra los botones
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               IconButton(
                 icon: const Icon(Icons.widgets_rounded, color: Colors.indigo),
-                iconSize: 39, // Tamaño del icono de la izquierda
+                iconSize: 39,
                 onPressed: () {
-                  onTabSelected(0); // Cambia a la pantalla principal
+                  onTabSelected(0);
                 },
               ),
-              const SizedBox(
-                  width: 50), // Espacio reducido entre el izquierdo y central
+              const SizedBox(width: 50),
 
               // Contenedor para el botón central
               Transform.translate(
-                offset:
-                    const Offset(0, -40), // Mueve el botón 30px hacia arriba
+                offset: const Offset(0, -40),
                 child: GestureDetector(
                   onTap: () {
                     onTabSelected(1); // Cambia a la pantalla de información
                   },
                   child: Container(
-                    width: 100.0, // Tamaño del contenedor
-                    height: 100.0, // Tamaño del contenedor
+                    width: 100.0,
+                    height: 100.0,
                     decoration: BoxDecoration(
                       color: Colors.indigo,
                       shape: BoxShape.circle,
@@ -62,8 +60,8 @@ class CustomNavBar extends StatelessWidget {
                     ),
                     child: const Icon(
                       Icons.timeline_rounded,
-                      size: 55.0, // Tamaño grande para el icono central
-                      color: Colors.white, // Color del icono central
+                      size: 55.0,
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -73,13 +71,13 @@ class CustomNavBar extends StatelessWidget {
                   width: 50), // Espacio reducido entre el central y derecho
               IconButton(
                 icon: Transform.rotate(
-                  angle: 270 * 3.14159 / 180, // 90 grados en radianes
+                  angle: 270 * 3.14159 / 180,
                   child: const Icon(
                     Icons.sort_rounded,
                     color: Colors.indigo,
                   ),
                 ),
-                iconSize: 39, // Tamaño del icono
+                iconSize: 39,
                 onPressed: () {
                   onTabSelected(2); // Cambia a la pantalla de estadísticas
                 },

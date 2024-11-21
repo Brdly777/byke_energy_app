@@ -10,13 +10,13 @@ class DayInformationCard extends StatelessWidget {
     required this.selectedDate,
   });
 
-  // Definimos los colores actualizados para las métricas
-  final Color distanceColor = Colors.indigo; // Color índigo para distancia
-  final Color energyColor = Colors.green; // Color verde para energía
-  final Color caloriesColor = Colors.red; // Color rojo para calorías
+  // Colores para las metricas
+  final Color distanceColor = Colors.indigo;
+  final Color energyColor = Colors.green;
+  final Color caloriesColor = Colors.red;
   final double betweenSpace = 0.2;
 
-  // Método para generar datos para las barras del gráfico
+  // Metodo para generar datos para las barras del gráfico
   BarChartGroupData generateGroupData(
     int x,
     double distance,
@@ -49,7 +49,7 @@ class DayInformationCard extends StatelessWidget {
     );
   }
 
-  // Método para obtener las últimas 8 horas
+  // Metodo para obtener las últimas 8 horas
   List<String> getLast8Hours() {
     final List<String> hours = [];
     DateTime currentTime = DateTime.now();
@@ -58,11 +58,10 @@ class DayInformationCard extends StatelessWidget {
       String formattedHour = DateFormat('HH:mm').format(hour);
       hours.add(formattedHour);
     }
-    return hours.reversed
-        .toList(); // Revertimos para que las horas estén en orden ascendente
+    return hours.reversed.toList();
   }
 
-  // Títulos del eje inferior
+  // Titulos del eje inferior
   Widget bottomTitles(double value, TitleMeta meta) {
     const style = TextStyle(fontSize: 10);
     List<String> hours = getLast8Hours(); // Obtenemos las horas dinámicamente
@@ -73,7 +72,7 @@ class DayInformationCard extends StatelessWidget {
     );
   }
 
-  // Ejemplo de datos de actividad para las últimas 8 horas
+  // Ejemplo de datos de actividad para las ultimas 8 horas
   List<List<double>> getActivityData() {
     // Datos de ejemplo para las 8 últimas horas:
     // [distancia, energía, calorías]
@@ -136,7 +135,7 @@ class DayInformationCard extends StatelessWidget {
                   '2,100',
                   style: TextStyle(
                     fontSize: 42,
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.normal,
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -148,6 +147,7 @@ class DayInformationCard extends StatelessWidget {
                     // Primer tarjeta: Distancia
                     Expanded(
                       child: Card(
+                        color: Colors.white,
                         elevation: 4.0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
@@ -167,7 +167,8 @@ class DayInformationCard extends StatelessWidget {
                                 'Distancia',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.grey,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -186,6 +187,7 @@ class DayInformationCard extends StatelessWidget {
                     // Segunda tarjeta: Calorías
                     Expanded(
                       child: Card(
+                        color: Colors.white,
                         elevation: 4.0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
@@ -205,7 +207,8 @@ class DayInformationCard extends StatelessWidget {
                                 'Calorías',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.grey,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -224,6 +227,7 @@ class DayInformationCard extends StatelessWidget {
                     // Tercer tarjeta: Energía
                     Expanded(
                       child: Card(
+                        color: Colors.white,
                         elevation: 4.0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
@@ -243,7 +247,8 @@ class DayInformationCard extends StatelessWidget {
                                 'Energía',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.grey,
                                 ),
                               ),
                               const SizedBox(height: 8),
@@ -263,10 +268,7 @@ class DayInformationCard extends StatelessWidget {
                 // Caja que contiene el gráfico
                 Container(
                   padding: const EdgeInsets.all(8.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    color: Colors.grey[100],
-                  ),
+                  height: 220,
                   child: AspectRatio(
                     aspectRatio: 1.7,
                     child: BarChart(
@@ -295,8 +297,7 @@ class DayInformationCard extends StatelessWidget {
                             activityData[index][2], // Calorías
                           );
                         }),
-                        maxY:
-                            2500, // Establecemos el máximo en Y para que el gráfico sea visible
+                        maxY: 2500,
                       ),
                     ),
                   ),
